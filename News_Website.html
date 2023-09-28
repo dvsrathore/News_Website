@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .card {
+      background-color: white;
+      color: black;
+      /* padding: 10px; */
+      /* height: 200px;
+      width: 300px; */
+      height: 495px;
+      width: 550px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      /* border: 1px solid red; */
+    }
+
+    .navbar {
+      background-color: white;
+      color: black;
+      text-align: center;
+      padding: 10px;
+      margin: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      gap: 50px;
+      cursor: pointer;
+    }
+
+    .navbar:hover {
+      color: blue;
+    }
+
+    #main {
+      /* border: 1px solid black; */
+      height: 495px;
+      width: 1655px;
+      display: flex;
+      float: left;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #main1 {
+      /* border: 1px solid black; */
+      height: 495px;
+      width: 1655px;
+      /* display: flex;
+      float: left; */
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #main2 {
+      /* border: 1px solid black; */
+      height: 495px;
+      width: 1655px;
+      /* display: flex;
+      float: left; */
+      display: flex;
+      justify-content: space-between;
+    }
+    #main3 {
+      /* border: 1px solid black; */
+      height: 495px;
+      width: 1655px;
+      /* display: flex;
+      float: left; */
+      display: flex;
+      justify-content: space-between;
+    }
+    #main4 {
+      /* border: 1px solid black; */
+      height: 495px;
+      width: 1655px;
+      /* display: flex;
+      float: left; */
+      display: flex;
+      justify-content: space-between;
+    }
+    #main5 {
+      /* border: 1px solid black; */
+      height: 495px;
+      width: 1655px;
+      /* display: flex;
+      float: left; */
+      display: flex;
+      justify-content: space-between;
+    }
+    #main6 {
+      /* border: 1px solid black; */
+      height: 495px;
+      width: 1655px;
+      /* display: flex;
+      float: left; */
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #div1,
+    #div2,
+    #div3,
+    #div4,
+    #div5,
+    #div6,
+    #div7, #div8, #div9,#div10, #div11,#div12, #div13, #div14, #div15 {
+      height: 495px;
+      width: 550px;
+      margin: 10px;
+      /* border: 1px solid black; */
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    a:active {
+      text-decoration: none;
+    }
+
+    @media only screen and (max-width: 1000px) {
+      body {
+        background-color: white;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <h3><a href="">Home</a></h3>
+    <h3><a href="">About</a></h3>
+    <h3><a href="">Services</a></h3>
+    <h3><a href="">Contact Us</a></h3>
+    <div>
+      <input type="text">
+      <button>Search</button>
+    </div>
+  </div>
+
+  <div id="main">
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+  </div>
+  <div id="main1">
+    <div id="div4"></div>
+    <div id="div5"></div>
+    <div id="div6"></div>
+  </div>
+  <div id="main2">
+    <div id="div7"></div>
+    <div id="div8"></div>
+    <div id="div9"></div>
+  </div>
+  <div id="main3">
+    <div id="div10"></div>
+    <div id="div11"></div>
+    <div id="div12"></div>
+  </div>
+  <div id="main4">
+    <div id="div13"></div>
+    <div id="div14"></div>
+    <div id="div15"></div>
+  </div>
+  <div id="main5">
+    <div id="div16"></div>
+    <div id="div17"></div>
+    <div id="div18"></div>
+  </div>
+  <div id="main5">
+    <div id="div19"></div>
+    <div id="div20"></div>
+    <div id="div21"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    const settings = {
+      async: true,
+      crossDomain: true,
+      url: `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=44695f2344d34ba4aded258bb70fc6a1`,
+      method: 'GET',
+    };
+
+    $.ajax(settings).done(function (response) {
+      const articles = response.articles;
+      for (let i = 0; i < articles.length; i++) {
+        const article = articles[i];
+        const cardContent = "<h2>" + article.title + "</h2>" +
+          "<img height ='300px' width='550px' src='" + article.urlToImage + "'>" +
+          "<br>" + article.description + "<br>";
+          // "<a target='_blank' href=" + article.url + "> Read More...</a>";
+
+        if (i === 0) {
+          document.getElementById("div1").innerHTML = "<div class='card' >" + cardContent + "</div>";
+        } else if (i === 1) {
+          document.getElementById("div2").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        } else if (i === 2) {
+          document.getElementById("div3").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        } else if (i === 3) {
+          document.getElementById("div4").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        } else if (i === 4) {
+          document.getElementById("div5").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        } else if (i === 5) {
+          document.getElementById("div6").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 6) {
+          document.getElementById("div7").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 7) {
+          document.getElementById("div8").innerHTML = ".<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 8) {
+          document.getElementById("div9").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 9) {
+          document.getElementById("div10").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 10) {
+          document.getElementById("div11").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 11) {
+          document.getElementById("div12").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 12) {
+          document.getElementById("div13").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 13) {
+          document.getElementById("div14").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 14) {
+          document.getElementById("div15").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 15) {
+          document.getElementById("div16").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 16) {
+          document.getElementById("div17").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 17) {
+          document.getElementById("div18").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 18) {
+          document.getElementById("div19").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 19) {
+          document.getElementById("div20").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+        else if (i === 20) {
+          document.getElementById("div21").innerHTML = "<div class='card'>" + cardContent + "</div>";
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
